@@ -30,7 +30,7 @@ export const  Balance = () => {
         <View style={styles.headerBalance}>
             <View>
                 <Text style={styles.subtitles}>Total Balance </Text>
-                <Text style={styles.titleNumber}>{convertMoney(totalIncome-(totalSaving+totalSaving))} </Text>
+                <Text style={styles.titleNumber}>{convertMoney(totalIncome-(totalExpense+totalSaving))} </Text>
             </View>
             <View style={{alignItems:'flex-end'}}>
                 

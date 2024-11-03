@@ -9,6 +9,7 @@ const width2 = Dimensions.get("screen").width
 type Props = {
   data:IFinance;
   removeData: (value: string)  => void;
+  key?: number;
 };
 
 const category:any = {
@@ -27,7 +28,7 @@ const category:any = {
 }
 
 
-export const ItemFinance = ({data, removeData = () => {}}: Props) => {
+export const ItemFinance = ({data, removeData = () => {}, key = 0}: Props) => {
 
   const [ showDelete, setShowDelete ] = useState(false);
 
@@ -50,7 +51,7 @@ export const ItemFinance = ({data, removeData = () => {}}: Props) => {
 }
   
   return (
-    <View style={styles.boxItem}>
+    <View style={styles.boxItem} key={data.objectId}>
         <View style={styles.headerBalance}>
             <View style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
                 <View style={[styles.iconCircle,{ backgroundColor: category[data.concept]?.color }]}>

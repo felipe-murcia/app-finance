@@ -15,6 +15,18 @@ import PickerMonth from '../components/PickerMonth/PickerMonth';
 const width2 = Dimensions.get("screen").width
 const iconSizeButton = 30
 
+import {
+    BallIndicator,
+    BarIndicator,
+    DotIndicator,
+    MaterialIndicator,
+    PacmanIndicator,
+    PulseIndicator,
+    SkypeIndicator,
+    UIActivityIndicator,
+    WaveIndicator,
+  } from 'react-native-indicators';
+
 //<Image source={require('../assets/images/logo.png')} resizeMode="contain" style={{width:100, height:50 }} />
 
 interface Props{
@@ -24,8 +36,8 @@ interface Props{
 export const  Main = ({ handleAdd = () => {} }:Props) => {
 
     const [ isShowCalendar, setIsShowCalendar ] = useState(false);
+    const [ isLoading, setLoading ] = useState(false);
     const { month, year, finances }   = useSelector((state:RootState) => state.financeData);
-    const statte   = useSelector((state:RootState) => state.financeData);
  
     const dispatch = useDispatch(); 
 
@@ -43,11 +55,14 @@ export const  Main = ({ handleAdd = () => {} }:Props) => {
 
     const getFinance = async (date:IDate) => {
         try {
+            setLoading(true);
             let listFinance:any = await financeService.get(`?where=%7B%20%22month%22%3A%20${date.month}%2C%20%22year%22%3A%20${date.year}%7D`);
             if(listFinance.results)  dispatch({ type: 'SET_FINANCES', payload: listFinance.results }); 
             //console.log('response',listFinance)
         } catch (error) {
             console.log('GET FINANCE',error)
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -82,9 +97,13 @@ export const  Main = ({ handleAdd = () => {} }:Props) => {
         <PickerMonth visible={isShowCalendar} onClose={()=>setIsShowCalendar(false)} onConfirm={(date: IDate)=>onSetCalendar(date)} />
 
         <Balance />
+ 
 
       {
-        finances?.map((item:IFinance)=>{
+        isLoading ? <View style={{padding:50}}>
+                <WaveIndicator color={colorBlack} />
+            </View>
+        :finances?.map((item:IFinance,i)=>{
             return(
                 <ItemFinance data={item} removeData={(value:string)=>removeData(value)} />
             )

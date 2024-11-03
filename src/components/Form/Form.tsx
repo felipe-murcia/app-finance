@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IDate } from "../../interface/IDate";
 import { RootState } from "../../storage/rootReducer";
 import { monthsArray } from "../../constant/data";
+import { WaveIndicator } from "react-native-indicators";
 
 const width2 = Dimensions.get("screen").width;
 
@@ -196,7 +197,7 @@ export const Form = ({ onSuccess }:Props) => {
             style={{ color: "white", fontFamily: "FontMedium", fontSize: 20 }}
           >
             Guardar
-          </Text>
+          </Text> 
         </View>
       </TouchableOpacity>
     </View>
