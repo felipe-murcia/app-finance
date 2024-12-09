@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, Dimensions, Image } from 'react-native';
 import { useState } from 'react';
-import { colorBlack, colorExpense, colorIncome, colorSaving, radioCurve } from '../../constant/styles';
+import { colorBlack, colorExpense, colorGrayLight, colorIncome, colorSaving, radioCurve } from '../../constant/styles';
 import { useSelector } from 'react-redux';
 import { monthData, monthsArray } from '../../constant/data';
 import { IFinance } from '../../interface/IFinance';
@@ -34,7 +34,7 @@ export const  Balance = () => {
             </View>
             <View style={{alignItems:'flex-end'}}>
                 
-                <Image source={require('../../assets/images/icons/wallet.png')} resizeMode="contain" style={{width:30, height:30, tintColor:"#646464"}}/>
+                <Image source={require('../../assets/images/icons/wallet.png')} resizeMode="contain" style={{width:30, height:30, tintColor:colorGrayLight}}/>
             </View>
         </View>
 
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   subtitles:{
     fontFamily:'FontLight',
     fontSize:20,
-    color:"#646464"
+    color:colorGrayLight
   },
   titleMonth:{
     fontFamily:'FontLight',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   subtitles2:{
     fontFamily:'FontLight',
     fontSize:20,
-    color:"#646464"
+    color:colorGrayLight
   },
   subtitleNumber:{
     fontFamily:'FontMedium',

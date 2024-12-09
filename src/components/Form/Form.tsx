@@ -11,7 +11,9 @@ import { useState } from "react";
 import {
   colorBlack,
   colorExpense,
+  colorGrayLight,
   colorIncome,
+  colorPrimary,
   colorSaving,
   radioCurve,
 } from "../../constant/styles";
@@ -133,7 +135,7 @@ export const Form = ({ onSuccess }:Props) => {
                 style={{
                   borderRadius: 8,
                   padding: 10,
-                  backgroundColor: isValue ? colorBlack : "transparent",
+                  backgroundColor: isValue ? colorPrimary : "transparent",
                   paddingHorizontal: 20,
                 }}
               >
@@ -187,7 +189,7 @@ export const Form = ({ onSuccess }:Props) => {
       <TouchableOpacity onPress={() => handleSave()}>
         <View
           style={{
-            backgroundColor: colorBlack,
+            backgroundColor: colorPrimary,
             borderRadius: 8,
             padding: 10,
             alignItems: "center",
@@ -215,7 +217,7 @@ const styles = StyleSheet.create({
   subtitles: {
     fontFamily: "FontLight",
     fontSize: 20,
-    color: "#646464",
+    color: colorGrayLight,
   },
   titleMonth: {
     fontFamily: "FontLight",
@@ -238,7 +240,7 @@ const styles = StyleSheet.create({
   subtitles2: {
     fontFamily: "FontLight",
     fontSize: 20,
-    color: "#646464",
+    color: colorGrayLight,
     marginTop: 10,
   },
   subtitleNumber: {

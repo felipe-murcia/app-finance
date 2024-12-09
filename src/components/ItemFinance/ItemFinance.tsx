@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, Dimensions, Image, Alert } from 'react-native';
 import { useState } from 'react';
-import { colorBlack, colorExpense, colorIncome, colorSaving, radioCurve } from '../../constant/styles';
+import { colorBlack, colorExpense, colorGrayLight, colorIncome, colorSaving, radioCurve } from '../../constant/styles';
 import { convertMoney } from '../../utils/convertMoney';
 import { IFinance } from '../../interface/IFinance';
 
@@ -55,7 +55,7 @@ export const ItemFinance = ({data, removeData = () => {}, key = 0}: Props) => {
         <View style={styles.headerBalance}>
             <View style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
                 <View style={[styles.iconCircle,{ backgroundColor: category[data.concept]?.color }]}>
-                  <Image source={category[data.concept]?.image} resizeMode="contain" style={{width:28, height:28, tintColor:"#646464"}}/>
+                  <Image source={category[data.concept]?.image} resizeMode="contain" style={{width:28, height:28, tintColor:colorGrayLight}}/>
                 </View>
                 <View>
                   <Text style={styles.subtitles}>{data.name} </Text>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   subtitles:{
     fontFamily:'FontLight',
     fontSize:20,
-    color:"#646464",
+    color:colorGrayLight,
   },
   number:{
     fontFamily:'FontMedium',
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   subtitles2:{
     fontFamily:'FontLight',
     fontSize:20,
-    color:"#646464"
+    color:colorGrayLight
   },
   subtitleNumber:{
     fontFamily:'FontMedium',

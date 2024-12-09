@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 export const Navigation = () => {
 
-    const [ menu, setMenu ] = useState<number>(1)
+    const [ menu, setMenu ] = useState<number>(3)
 
     const [loaded] = useFonts({
         FontLight: require('../assets/fonts/SofiaProLightAz.otf'),
