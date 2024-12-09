@@ -1,4 +1,4 @@
-# 📦 App Finance
+# :iphone:  App Finance
 
 ![Descripción de la imagen](image.png)
 
